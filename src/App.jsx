@@ -68,13 +68,11 @@ function App() {
                             <VStack height={"full"} w={"full"} overflowY={"auto"}>
                                 {
                                     messages.map(item => {
-                                        return <Message key={item.id} user={item.uid === user.uid ? "me" : "others"} text={item.text} uri={item.uri} />
+                                        return <Message key={item.id} user={item.uid === user.uid ? "me" : "other"} text={item.text} uri={item.uri} />
                                     })
                                 }
                             </VStack>
-                            <div ref={divForScroll}>
-
-                            </div>
+                            <div ref={divForScroll}> </div>
                             <form onSubmit={submitHandler} style={{ "width": "100%" }}>
                                 <HStack>
                                     <Input value={message} onChange={(e) => setMessage(e.target.value)} placeholder={"Enter a Message..."} />
@@ -87,7 +85,6 @@ function App() {
                         <Button onClick={loginHandler} colorScheme={"facebook"}>Sign In With Google<FcGoogle style={{ "fontSize": "1.5rem", "marginLeft": "10px" }} /></Button>
                     </VStack>
             }
-
         </Box>
     );
 }
