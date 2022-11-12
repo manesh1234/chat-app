@@ -14,14 +14,12 @@ const loginHandler = () => {
 }
 const logoutHandler = () => signOut(auth);
 
-
-
 function App() {
     const [user, setUser] = useState(false);
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const divForScroll = useRef(null);
-
+ 
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
@@ -31,6 +29,7 @@ function App() {
                 uid: user.uid,
                 uri: user.photoURL,
                 createdAt: serverTimestamp(),
+                name: user.displayName,
             })
             divForScroll.current.scrollIntoView({ behaviour: "smooth" });
         }
@@ -64,11 +63,11 @@ function App() {
                     <Container h={"100vh"} bg={"white"}>
                         <VStack h={"full"} paddingY={"4"}>
                             <Button onClick={logoutHandler} colorScheme={"red"} w={"full"}>Logout</Button>
-
-                            <VStack height={"full"} w={"full"} overflowY={"auto"}>
+    
+                            <VStack height={"full"} w={"full"} overflowY={"auto"} >
                                 {
                                     messages.map(item => {
-                                        return <Message key={item.id} user={item.uid === user.uid ? "me" : "other"} text={item.text} uri={item.uri} />
+                                        return <Message key={item.id} user={item.uid === user.uid ? "me" : "other"} text={item.text} name={item.name} uri={item.uri} />
                                     })
                                 }
                             </VStack>
