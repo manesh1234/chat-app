@@ -9,13 +9,19 @@ const Message = ({ text, uri, name, user = "other" }) => {
                     <HStack>
                         <Avatar src={uri} />
                         <VStack>
-                            <Text>{name}</Text>
-                            <Text>{text}</Text>
+                            <Text fontWeight={"extrabold"}>{name}</Text>
+                            {
+                                (text.substring(0, 4) === "http") ? <a href={text}>{text}</a>
+                                    : <Text>{text}</Text>
+                            }
                         </VStack>
                     </HStack> : <HStack>
                         <VStack>
-                            <Text>{name}</Text>
-                            <Text>{text}</Text>
+                            <Text fontWeight={"extrabold"}>{name}</Text>
+                            {
+                                (text.substring(0, 4) === "http") ? <a href={text}>{text}</a>
+                                    : <Text>{text}</Text>
+                            }
                         </VStack>
                         <Avatar src={uri} />
                     </HStack>
