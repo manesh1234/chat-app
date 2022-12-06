@@ -1,3 +1,10 @@
+# chat-app
+a real time chat-application for a 
+group of people with google authentication using 
+firebase and build using ReactJs and chakraUI in front-end
+Tech stack used: HTML, CSS, JavaScript, ReactJs, CharkraUI
+firebase
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
